@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Title from './components/Title/Title';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -54,8 +55,8 @@ function App() {
   };
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>Choses à faire</h1>
+    <div>
+      <Title />
 
       <input
         value={title}
