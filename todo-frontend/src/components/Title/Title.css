@@ -1,7 +1,6 @@
 header {
     display: flex;
     padding: 20px 0;
-    background-color: #FEF1D7;
 }
 
 h1 {
@@ -15,7 +14,7 @@ h1 {
 }
 
 h1 i {
-    color: rgb(250, 227, 25);
+    color: #F9BC43;
     font-size: 2em;
     margin-left: 10px;
     margin-bottom: -6px;
