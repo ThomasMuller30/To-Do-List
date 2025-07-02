@@ -55,6 +55,15 @@ function List() {
         });
     };
 
+    const toggleCompleted = (todo) => {
+        fetch(`http://localhost:5000/todos/${todo.id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...todo, completed: !todo.completed })
+        }).then(() => fetchTodos());
+    };
+
+
     return (
         <>
             <div className='add-to-do'>
@@ -72,20 +81,32 @@ function List() {
                                         value={editTitle}
                                         onChange={e => setEditTitle(e.target.value)}
                                     />
-                                    <button onClick={() => saveEdit(todo.id)}><i class="fa-solid fa-square-check"></i></button>
-                                    <button onClick={() => setEditId(null)}><i class="fa-solid fa-square-xmark"></i></button>
+                                    <button onClick={() => saveEdit(todo.id)}><i className="fa-solid fa-square-check"></i></button>
+                                    <button onClick={() => setEditId(null)}><i className="fa-solid fa-square-xmark"></i></button>
                                 </>
                             ) : (
                                 <>
-                                    <span style={{ marginLeft: 8 }}>
+                                    <input
+                                        type="checkbox"
+                                        checked={todo.completed}
+                                        onChange={() => toggleCompleted(todo)}
+                                    />
+                                    <span
+                                        style={{
+                                            marginLeft: 8,
+                                            textDecoration: todo.completed ? 'line-through' : 'none',
+                                            color: todo.completed ? 'gray' : 'black'
+                                        }}
+                                    >
                                         {todo.title}
                                     </span>
-                                    <button style={{ marginLeft: 8 }} onClick={() => startEdit(todo)}><i class="fa-solid fa-pen-to-square"></i></button>
-                                    <button style={{ marginLeft: 8 }} onClick={() => deleteTodo(todo.id)}><i class="fa-solid fa-trash"></i></button>
+                                    <button style={{ marginLeft: 8 }} onClick={() => startEdit(todo)}><i className="fa-solid fa-pen-to-square"></i></button>
+                                    <button style={{ marginLeft: 8 }} onClick={() => deleteTodo(todo.id)}><i className="fa-solid fa-trash"></i></button>
                                 </>
                             )}
                         </li>
                     ))}
+
                 </ul>
             </div>
         </>
