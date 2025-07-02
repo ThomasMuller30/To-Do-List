@@ -1,6 +1,7 @@
 
 import Title from './components/Title/Title';
 import List from './components/List/List'
+import Footer from './components/Footer/Footer';
 
 function App() {
   
@@ -9,6 +10,7 @@ function App() {
     <div>
       <Title />
       <List />
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,19 @@
+.beach-container {
+  position: relative;
+  height: 300px;
+}
+
+.waves {
+  position: absolute;
+  bottom: 100px;
+  width: 100%;
+  height: auto;
+}
+
+.sand {
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  background-color: sandybrown;
+}
