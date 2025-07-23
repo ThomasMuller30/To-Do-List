@@ -21,14 +21,14 @@ app.post('/todos', (req, res) => {
   const { title } = req.body;
   const newTodo = { id: Date.now(), title, completed: false };
   todos.push(newTodo);
-  res.status(201).json(newTodo);
+  res.status(200).json(newTodo);
 });
 
 // supprimer une tache
 app.delete('/todos/:id', (req, res) => {
   const { id } = req.params;
   todos = todos.filter(todo => todo.id != id);
-  res.status(204).send();
+  res.status(200).send();
 });
 
 // modifier une tache
